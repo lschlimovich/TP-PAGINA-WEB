@@ -3,81 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de eventos</title>
+    <title>Ludika - Tu tienda de juegos de mesa</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
-<style>
-    header {
-    background-color: Thistle;
-    color: white;
-    text-align: center;
-    padding: 25px 0; 
-    font-size: 30px; 
-    font-style: Delius; /*cambiar, no funciona --> descargar */
-    font-weight: 500;
-    letter-spacing: 1px;
-    } 
-    
-    nav {
-        width: 100%;
-        background-color: Purple; /* color de fondo del nav */
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px 0;
-    }
-
-    .nav-btn {
-        background-color: darkmagenta; /* color de los cuadrados */
-        color: white;
-        text-align: center;
-        padding: 15px 20px;
-        border-radius: 10px;
-        width: 150px;
-        font-weight: bold;
-    }
-</style>
-<header>
-    <h1>Calendario de eventos</h1> <!-- hacer que quede fijo -->
+<body>
+    <header class="header">
+        <hr class="linea">
+        <div class="logo">
+            <img src="img/logo.png" alt="Ludika Logo" class="logo-img">
+        </div>
+        <hr class="linea">
 </header>
 
-<body>
+</div>
+
     <nav>
-    <a href="#verCalendario" class="nav-btn">Ver mi calendario</a>
-    <a href="#agregarEvento" class="nav-btn">Agregar evento</a>
-    <a href="#editarEvento" class="nav-btn">Editar evento</a>
-    <a href="#eliminarEvento" class="nav-btn">Eliminar evento</a>
+        <a href="index.html" class="nav-btn active">Inicio</a>
+        <a href="productos.html" class="nav-btn">Juegos</a>
+        <a href="carrito.html" class="nav-btn">Mi Carrito</a>
     </nav>
 
-    <div id="agregarEvento">
-        <h4>Agregar Evento:</h4>
-        <input type="date" id="datehtml" placeholder="Add datetime">
-        <input type="checkbox" id="diaCompletohtml"> Dia completo?
-        <input type="checkbox" id="diaCompletohtml"> Seleccionar Horario
-    </div>
-    <div id="editarEvento">
-        <h4>Editar Evento:</h4>
-        <input type="date" id="datehtml">
-        <!-- Aca preguntaria si quiere buscar por nombre o por dia -->
-        <input type="text" id="txtAEditar" placeholder="Texto evento a editar">
-        <input type="button" id="btnEditar" value="Guardar edicion">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>¡Bienvenidos a Ludika!</h2>
+            <p>Los mejores juegos de mesa para toda la familia</p>
+            <a href="productos.html" class="cta-btn">Ver Catálogo</a>
+        </div>
+    </section>
 
-    <div id="eliminarEvento"></div>
-        <h4>Eliminar Evento:</h4>
-        <!-- Deberia seleccionar una fecha y el evento, si no lo encuentra lo notifica como que 
-        no existe ese evento ese dia y si existe lo borra -->
-        <input type="date" id="datehtml">
+    <!-- Categorías Destacadas -->
+    <section class="categorias-destacadas">
+        <h2>Categorías</h2>
+        <div class="grid-categorias">
+            <a href="productos.html?categoria=estrategia" class="categoria-card">
+                <div class="categoria-imagen">
+                    <img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=400&h=300&fit=crop" alt="Juegos de Estrategia">
+                </div>
+                <h3>Estrategia</h3>
+            </a>
+            <a href="productos.html?categoria=cartas" class="categoria-card">
+                <div class="categoria-imagen">
+                    <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400&h=300&fit=crop" alt="Juegos de Cartas">
+                </div>
+                <h3>Cartas</h3>
+            </a>
+            <a href="productos.html?categoria=habilidad" class="categoria-card">
+                <div class="categoria-imagen">
+                    <img src="https://images.unsplash.com/photo-1632501641765-e568d52ed9b1?w=400&h=300&fit=crop" alt="Juegos de Habilidad">
+                </div>
+                <h3>Habilidad</h3>
+            </a>
+            <a href="productos.html?categoria=palabras" class="categoria-card">
+                <div class="categoria-imagen">
+                    <img src="https://images.unsplash.com/photo-1632501641680-7d5e72c448e4?w=400&h=300&fit=crop" alt="Juegos de Palabras">
+                </div>
+                <h3>Palabras</h3>
+            </a>
+        </div>
+    </section>
 
-    </div>
+    <!-- Productos Destacados -->
+    <section class="productos-destacados">
+        <h2>Juegos Destacados</h2>
+        <div id="productosDestacados" class="grid-productos">
+            <!-- Se cargarán con JavaScript -->
+        </div>
+        <div class="ver-mas">
+            <a href="productos.html" class="btn-secondary">Ver Todos Los Juegos</a>
+        </div>
+    </section>
 
-    <table>
-        <!-- Armar con un buen formato la tabla:
-        - Seleccionar mes con select options y seleccionar año con input number? (ver que conviene) -->
-    </table>
+    <!-- Por qué elegirnos -->
+    <section class="por-que-elegirnos">
+        <h2>¿Por qué elegir Ludika?</h2>
+        <div class="beneficios">
+            <div class="beneficio">
+                <div class="beneficio-icon">✓</div>
+                <h3>Calidad Garantizada</h3>
+                <p>Juegos originales y certificados de las mejores marcas</p>
+            </div>
+            <div class="beneficio">
+                <div class="beneficio-icon">🚚</div>
+                <h3>Envío Gratis</h3>
+                <p>En compras mayores a $10.000</p>
+            </div>
+            <div class="beneficio">
+                <div class="beneficio-icon">💳</div>
+                <h3>Pago Seguro</h3>
+                <p>Múltiples métodos de pago disponibles</p>
+            </div>
+            <div class="beneficio">
+                <div class="beneficio-icon">🎁</div>
+                <h3>Envoltorio de Regalo</h3>
+                <p>Servicio gratuito para todas tus compras</p>
+            </div>
+        </div>
+    </section>
 
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ludika</h3>
+                <p>Tu tienda de juegos de mesa desde 2020</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="productos.html">Juegos</a>
+                <a href="carrito.html">Carrito</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p> 0800-LUDIKA</p>
+                <p> info@ludika.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ludika - Todos los derechos reservados</p>
+        </div>
+    </footer>
 
+    <script src='./script.js'></script>
 </body>
-<script  src='./capturarhtml.js'></script> 
 </html>
-
-

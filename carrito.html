@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Ludika</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>🎮 LUDIKA</h1>
+                <p class="tagline">Donde el juego cobra vida</p>
+            </div>
+            <div class="header-right">
+                <a href="carrito.html" class="carrito-icon active">
+                    🛒 Carrito (<span id="cantidadCarrito">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Inicio</a>
+        <a href="productos.html" class="nav-btn">Productos</a>
+        <a href="nosotros.html" class="nav-btn">Nosotros</a>
+        <a href="contacto.html" class="nav-btn">Contacto</a>
+    </nav>
+
+    <section class="carrito-page">
+        <div class="carrito-container">
+            <h2>Mi Carrito de Compras</h2>
+
+            <div class="carrito-content">
+                <!-- Lista de productos en el carrito -->
+                <div class="carrito-items">
+                    <div id="listaCarrito">
+                        <p class="carrito-vacio">Tu carrito está vacío</p>
+                    </div>
+                </div>
+
+                <!-- Resumen del carrito -->
+                <div class="carrito-resumen">
+                    <h3>Resumen de Compra</h3>
+                    
+                    <div class="resumen-linea">
+                        <span>Subtotal:</span>
+                        <span>$<span id="subtotalCarrito">0</span></span>
+                    </div>
+                    
+                    <div class="resumen-linea">
+                        <span>Envío:</span>
+                        <span id="costoEnvio">Gratis</span>
+                    </div>
+                    
+                    <div class="resumen-linea total">
+                        <span>Total:</span>
+                        <span>$<span id="totalCarrito">0</span></span>
+                    </div>
+
+                    <button id="btnFinalizarCompra" class="cta-btn">Finalizar Compra</button>
+                    <button id="btnVaciarCarrito" class="btn-secondary">Vaciar Carrito</button>
+                    <a href="productos.html" class="btn-continuar">Continuar Comprando</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ludika</h3>
+                <p>Tu tienda de confianza desde 2020</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📞 0800-LUDIKA</p>
+                <p>📧 info@ludika.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ludika - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src='./script.js'></script>
+</body>
+</html>

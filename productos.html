@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Ludika</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>🎮 LUDIKA</h1>
+                <p class="tagline">Donde el juego cobra vida</p>
+            </div>
+            <div class="header-right">
+                <a href="carrito.html" class="carrito-icon">
+                    🛒 Carrito (<span id="cantidadCarrito">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="nav-btn">Inicio</a>
+        <a href="productos.html" class="nav-btn active">Productos</a>
+        <a href="nosotros.html" class="nav-btn">Nosotros</a>
+        <a href="contacto.html" class="nav-btn">Contacto</a>
+    </nav>
+
+    <section class="productos-page">
+        <div class="productos-container">
+            <!-- Sidebar de Filtros -->
+            <aside class="filtros-sidebar">
+                <h3>Filtrar Productos</h3>
+                
+                <div class="filtro-grupo">
+                    <h4>Categoría</h4>
+                    <select id="categoriaFiltro">
+                        <option value="todos">Todas las categorías</option>
+                        <option value="educativos">Educativos</option>
+                        <option value="accion">Acción</option>
+                        <option value="peluches">Peluches</option>
+                        <option value="construccion">Construcción</option>
+                    </select>
+                </div>
+
+                <div class="filtro-grupo">
+                    <h4>Rango de Precio</h4>
+                    <input type="number" id="precioMin" placeholder="Mínimo" min="0">
+                    <input type="number" id="precioMax" placeholder="Máximo" min="0">
+                </div>
+
+                <div class="filtro-grupo">
+                    <h4>Ordenar por</h4>
+                    <select id="ordenar">
+                        <option value="defecto">Por defecto</option>
+                        <option value="precio-asc">Precio: Menor a Mayor</option>
+                        <option value="precio-desc">Precio: Mayor a Menor</option>
+                        <option value="nombre">Nombre A-Z</option>
+                    </select>
+                </div>
+
+                <button id="btnAplicarFiltros" class="btn-filtrar">Aplicar Filtros</button>
+                <button id="btnLimpiarFiltros" class="btn-limpiar">Limpiar Filtros</button>
+            </aside>
+
+            <!-- Catálogo de Productos -->
+            <div class="catalogo-principal">
+                <div class="catalogo-header">
+                    <h2>Todos los Productos</h2>
+                    <p id="contadorProductos">Mostrando 12 productos</p>
+                </div>
+
+                <div id="catalogoProductos" class="grid-productos">
+                    <!-- Los productos se cargarán dinámicamente con JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ludika</h3>
+                <p>Tu tienda de confianza desde 2020</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📞 0800-LUDIKA</p>
+                <p>📧 info@ludika.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ludika - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src='./script.js'></script>
+</body>
+</html>
