@@ -540,15 +540,26 @@ nav a.active {
 }
 
 .btn-eliminar {
-    background-color: transparent;
+    background-color: #ff4444;
+    color: white;
     border: none;
-    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .btn-eliminar:hover {
-    transform: scale(1.2);
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+
+.btn-eliminar::before {
+    content: '✕';
+    font-size: 20px;
 }
 
 /* Mensaje de carrito vacío */

@@ -157,7 +157,7 @@ const productosDisponibles = [
         id: 16, 
         nombre: "SET", 
         precio: 9200, 
-        categoria: "habilidad", 
+        categoria: "cartas", 
         imagen: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017222944-1200-face3d.jpg",
         descripcion: "Encuentra patrones visuales antes que los demás. Razonamiento rápido.",
         edad: "7+",
@@ -167,7 +167,7 @@ const productosDisponibles = [
         id: 17, 
         nombre: "Código Secreto", 
         precio: 6800, 
-        categoria: "palabras", 
+        categoria: "cartas", 
         imagen: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017224627-1200-components1.jpg",
         descripcion: "Juego de espías y pistas. Adiviná las palabras del equipo.",
         edad: "14+",
@@ -187,7 +187,7 @@ const productosDisponibles = [
         id: 19, 
         nombre: "Spot It!", 
         precio: 8700, 
-        categoria: "habilidad", 
+        categoria: "cartas", 
         imagen: "https://www.spotitgame.com/wp-content/uploads/sites/5/2022/03/sp103_setup1_20210118-min-1024x556.png",
         descripcion: "Encontrá el símbolo repetido antes que los demás. Ideal para niños.",
         edad: "6+",
@@ -207,7 +207,7 @@ const productosDisponibles = [
         id: 21, 
         nombre: "Burako", 
         precio: 10200, 
-        categoria: "cartas", 
+        categoria: "estrategia", 
         imagen: "https://apioverde.com/cdn/shop/products/D_641243-MLA31048079697_062019-B_1024x1024.jpg?v=1662141232",
         descripcion: "Clásico juego de combinaciones con fichas y cartas. Estrategia y azar.",
         edad: "10+",
@@ -284,6 +284,7 @@ function agregarAlCarrito(idProducto) {
         });
     }
     
+    guardarCarrito();
     actualizarCarrito();
     mostrarNotificacion(`${producto.nombre} agregado al carrito`, "success");
 }
@@ -340,9 +341,7 @@ function actualizarCarrito() {
                 <div class="item-subtotal">
                     <p>$${subtotal.toLocaleString()}</p>
                 </div>
-                <button onclick="eliminarDelCarrito(${item.id})" class="btn-eliminar" title="Eliminar juego">
-                    🗑️
-                </button>
+                <button onclick="eliminarDelCarrito(${item.id})" class="btn-eliminar" title="Eliminar juego"></button>
             </div>
         `;
     });
@@ -351,6 +350,21 @@ function actualizarCarrito() {
     
     if (totalCarrito) totalCarrito.textContent = total.toLocaleString();
     if (subtotalCarrito) subtotalCarrito.textContent = total.toLocaleString();
+}
+
+function modificarCantidad(idProducto, cambio) {
+    const item = carrito.find(item => item.id === idProducto);
+    
+    if (!item) return;
+    
+    item.cantidad += cambio;
+    
+    if (item.cantidad <= 0) {
+        eliminarDelCarrito(idProducto);
+    } else {
+        guardarCarrito();
+        actualizarCarrito();
+    }
 }
 
 // UPDATE - Modificar cantidad
@@ -376,7 +390,9 @@ function agregarAlCarrito(idProducto) {
             cantidad: 1
         });
     }
+    
     guardarCarrito();
+    actualizarCarrito();
 } 
 
 
@@ -384,6 +400,8 @@ function agregarAlCarrito(idProducto) {
 function eliminarDelCarrito(idProducto) {
     const producto = carrito.find(item => item.id === idProducto);
     carrito = carrito.filter(item => item.id !== idProducto);
+    
+    guardarCarrito();
     actualizarCarrito();
     
     if (producto) {
@@ -400,6 +418,8 @@ function vaciarCarrito() {
     
     if (confirm("¿Estás seguro de vaciar el carrito?")) {
         carrito = [];
+
+        guardarCarrito();
         actualizarCarrito();
         mostrarNotificacion("Carrito vaciado", "info");
     }
