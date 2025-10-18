@@ -57,7 +57,7 @@ const productosDisponibles = [
         id: 6, 
         nombre: "Ajedrez", 
         precio: 7500, 
-        categoria: "clásico", 
+        categoria: "estrategia", 
         imagen: "https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=400&h=400&fit=crop",
         descripcion: "El juego de estrategia por excelencia. Tablero de madera premium.",
         edad: "6+",
@@ -97,7 +97,7 @@ const productosDisponibles = [
         id: 10, 
         nombre: "Clue (Misterio)", 
         precio: 7800, 
-        categoria: "misterio", 
+        categoria: "habilidad", 
         imagen: "https://apioverde.com/cdn/shop/files/D_856476-MLA77031569328_062024-O_1024x1024.jpg?v=1720618997",
         descripcion: "Resuelve el asesinato. ¿Quién, dónde y con qué arma?",
         edad: "8+",
@@ -107,7 +107,7 @@ const productosDisponibles = [
         id: 11, 
         nombre: "Jumanji", 
         precio: 9500, 
-        categoria: "aventura", 
+        categoria: "familiar", 
         imagen: "https://kinderlandar.vtexassets.com/arquivos/ids/156277/1410005_2.jpg?v=638049163554630000",
         descripcion: "Entrá a la jungla y enfrentá desafíos salvajes. Inspirado en la película.",
         edad: "8+",
@@ -127,7 +127,7 @@ const productosDisponibles = [
         id: 13, 
         nombre: "Jungle Speed", 
         precio: 4200, 
-        categoria: "rapidez", 
+        categoria: "habilidad", 
         imagen: "https://i.blogs.es/331249/00197632106544____1__1200x1200/450_1000.jpeg",
         descripcion: "Agarrá el tótem antes que los demás. Reflejos y atención al límite.",
         edad: "7+",
@@ -157,7 +157,7 @@ const productosDisponibles = [
         id: 16, 
         nombre: "SET", 
         precio: 9200, 
-        categoria: "lógica", 
+        categoria: "habilidad", 
         imagen: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017222944-1200-face3d.jpg",
         descripcion: "Encuentra patrones visuales antes que los demás. Razonamiento rápido.",
         edad: "7+",
@@ -187,7 +187,7 @@ const productosDisponibles = [
         id: 19, 
         nombre: "Spot It!", 
         precio: 8700, 
-        categoria: "rapidez", 
+        categoria: "habilidad", 
         imagen: "https://www.spotitgame.com/wp-content/uploads/sites/5/2022/03/sp103_setup1_20210118-min-1024x556.png",
         descripcion: "Encontrá el símbolo repetido antes que los demás. Ideal para niños.",
         edad: "6+",
@@ -197,7 +197,7 @@ const productosDisponibles = [
         id: 20, 
         nombre: "Pandemic", 
         precio: 11500, 
-        categoria: "cooperativo", 
+        categoria: "estrategia", 
         imagen: "https://acdn-us.mitiendanube.com/stores/001/320/809/products/pandemic-9dffe0438b0255ed9417255672312925-1024-1024.webp",
         descripcion: "Salvá al mundo de cuatro enfermedades mortales. Todos ganan o pierden.",
         edad: "8+",
@@ -227,7 +227,7 @@ const productosDisponibles = [
         id: 23, 
         nombre: "Memotest", 
         precio: 2800, 
-        categoria: "memoria", 
+        categoria: "creatividad", 
         imagen: "https://apioverde.com/cdn/shop/products/D_624596-MLA31117626542_062019-B_1024x1024.jpg?v=1662141157",
         descripcion: "Clásico juego de memoria con ilustraciones coloridas. Ideal para chicos.",
         edad: "3+",
@@ -237,7 +237,7 @@ const productosDisponibles = [
         id: 24, 
         nombre: "Preguntados", 
         precio: 8300, 
-        categoria: "trivia", 
+        categoria: "familiar", 
         imagen: "https://apioverde.com/cdn/shop/products/D_651260-MLA31120593808_062019-B_1024x1024.jpg?v=1662141473",
         descripcion: "Demostrá tus conocimientos en seis categorías. Hecho en Argentina.",
         edad: "12+",
@@ -245,11 +245,16 @@ const productosDisponibles = [
     }
 ];
 
+// ============================================
+// CARRITO DE COMPRAS (con persistencia en localStorage)
+// ============================================
 
-// ============================================
-// CARRITO DE COMPRAS (usando variable en memoria)
-// ============================================
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// Guardar el carrito en localStorage
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
 // ============================================
 // FUNCIONES DEL CARRITO (CRUD)
@@ -349,19 +354,31 @@ function actualizarCarrito() {
 }
 
 // UPDATE - Modificar cantidad
-function modificarCantidad(idProducto, cambio) {
-    const item = carrito.find(item => item.id === idProducto);
+
+function agregarAlCarrito(idProducto) {
+    const producto = productosDisponibles.find(p => p.id === idProducto);
     
-    if (!item) return;
-    
-    item.cantidad += cambio;
-    
-    if (item.cantidad <= 0) {
-        eliminarDelCarrito(idProducto);
-    } else {
-        actualizarCarrito();
+    if (!producto) {
+        mostrarNotificacion("Producto no encontrado", "error");
+        return;
     }
-}
+    
+    const itemExistente = carrito.find(item => item.id === idProducto);
+    
+    if (itemExistente) {
+        itemExistente.cantidad++;
+    } else {
+        carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio,
+            imagen: producto.imagen,
+            cantidad: 1
+        });
+    }
+    guardarCarrito();
+} 
+
 
 // DELETE - Eliminar producto del carrito
 function eliminarDelCarrito(idProducto) {
