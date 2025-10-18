@@ -1,6 +1,6 @@
 /* ============================================
-   COLORES Y CONFIGURACIÓN BÁSICA
-   ============================================ */
+COLORES Y CONFIGURACIÓN BÁSICA
+============================================ */
 
 /* Resetear márgenes y padding */
 * {
@@ -28,8 +28,8 @@ body {
 }
 
 /* ============================================
-   HEADER (Cabecera)
-   ============================================ */
+HEADER (Cabecera)
+============================================ */
 header {
     background-color: var(--color-fondo);
     color: var(--color-crema);
@@ -47,6 +47,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
 }
 
