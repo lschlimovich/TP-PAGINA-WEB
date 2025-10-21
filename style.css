@@ -591,12 +591,16 @@ nav a.active {
 }
 
 /* Resumen del carrito */
+
 .carrito-resumen {
     background-color: var(--color-blanco);
     padding: 30px;
-    border-radius: 15px;
-    height: fit-content;
+    border-radius: 25px;
     border: 2px solid var(--color-azul);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px; 
 }
 
 .carrito-resumen h3 {
@@ -605,39 +609,44 @@ nav a.active {
     color: var(--color-fondo);
 }
 
-.resumen-linea {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--color-crema);
-    font-size: 18px;
-}
-
-.resumen-linea.total {
-    border-top: 2px solid var(--color-fondo);
-    border-bottom: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--color-fondo);
-    margin-top: 15px;
-}
-
-.carrito-resumen button {
+.carrito-resumen button,
+.btn-continuar {
     width: 100%;
-    margin-top: 15px;
+    padding: 15px 0;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#btnFinalizarCompra {
+    background-color: var(--color-verde-suave);
+    color: var(--color-fondo);
+}
+
+#btnFinalizarCompra:hover {
+    background-color: var(--color-azul);
+    color: var(--color-crema);
+}
+
+#btnVaciarCarrito {
+    background-color: var(--color-azul);
+    color: var(--color-crema);
+}
+
+#btnVaciarCarrito:hover {
+    background-color: var(--color-fondo);
+    color: var(--color-crema);
 }
 
 .btn-continuar {
-    display: block;
     background-color: var(--color-crema);
     color: var(--color-fondo);
-    padding: 12px;
-    border-radius: 25px;
     text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
+    margin-top: 0;
 }
 
 .btn-continuar:hover {

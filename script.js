@@ -334,22 +334,52 @@ function actualizarCarrito() {
                     <p class="item-precio-unitario">Precio: $${item.precio.toLocaleString()}</p>
                 </div>
                 <div class="item-controles">
-                    <button onclick="modificarCantidad(${item.id}, -1)" class="btn-cantidad">-</button>
+                    <input type="button" value="-" class="btn-cantidad btn-restar" data-id="${item.id}">
                     <span class="cantidad">${item.cantidad}</span>
-                    <button onclick="modificarCantidad(${item.id}, 1)" class="btn-cantidad">+</button>
+                    <input type="button" value="+" class="btn-cantidad btn-sumar" data-id="${item.id}">
                 </div>
                 <div class="item-subtotal">
                     <p>$${subtotal.toLocaleString()}</p>
                 </div>
-                <button onclick="eliminarDelCarrito(${item.id})" class="btn-eliminar" title="Eliminar juego"></button>
+                <input type="button" value="×" class="btn-eliminar" data-id="${item.id}" title="Eliminar juego">
             </div>
         `;
     });
     
     listaCarrito.innerHTML = html;
     
+    // Agregar event listeners a los botones dinámicos
+    agregarEventListenersCarrito();
+    
     if (totalCarrito) totalCarrito.textContent = total.toLocaleString();
     if (subtotalCarrito) subtotalCarrito.textContent = total.toLocaleString();
+}
+
+// Agregar event listeners a botones dinámicos del carrito
+function agregarEventListenersCarrito() {
+    // Botones de restar cantidad
+    document.querySelectorAll('.btn-restar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.dataset.id);
+            modificarCantidad(id, -1);
+        });
+    });
+    
+    // Botones de sumar cantidad
+    document.querySelectorAll('.btn-sumar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.dataset.id);
+            modificarCantidad(id, 1);
+        });
+    });
+    
+    // Botones de eliminar
+    document.querySelectorAll('.btn-eliminar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.dataset.id);
+            eliminarDelCarrito(id);
+        });
+    });
 }
 
 function modificarCantidad(idProducto, cambio) {
@@ -366,35 +396,6 @@ function modificarCantidad(idProducto, cambio) {
         actualizarCarrito();
     }
 }
-
-// UPDATE - Modificar cantidad
-
-function agregarAlCarrito(idProducto) {
-    const producto = productosDisponibles.find(p => p.id === idProducto);
-    
-    if (!producto) {
-        mostrarNotificacion("Producto no encontrado", "error");
-        return;
-    }
-    
-    const itemExistente = carrito.find(item => item.id === idProducto);
-    
-    if (itemExistente) {
-        itemExistente.cantidad++;
-    } else {
-        carrito.push({
-            id: producto.id,
-            nombre: producto.nombre,
-            precio: producto.precio,
-            imagen: producto.imagen,
-            cantidad: 1
-        });
-    }
-    
-    guardarCarrito();
-    actualizarCarrito();
-} 
-
 
 // DELETE - Eliminar producto del carrito
 function eliminarDelCarrito(idProducto) {
@@ -418,7 +419,6 @@ function vaciarCarrito() {
     
     if (confirm("¿Estás seguro de vaciar el carrito?")) {
         carrito = [];
-
         guardarCarrito();
         actualizarCarrito();
         mostrarNotificacion("Carrito vaciado", "info");
@@ -463,15 +463,21 @@ function mostrarProductos(productos) {
                     <p class="producto-jugadores">👥 ${producto.jugadores} jugadores</p>
                     <p class="producto-descripcion">${producto.descripcion}</p>
                     <p class="producto-precio">$${producto.precio.toLocaleString()}</p>
-                    <button onclick="agregarAlCarrito(${producto.id})" class="btn-agregar">
-                        Agregar al Carrito
-                    </button>
+                    <input type="button" value="Agregar al Carrito" class="btn-agregar" data-id="${producto.id}">
                 </div>
             </div>
         `;
     });
     
     catalogo.innerHTML = html;
+    
+    // Agregar event listeners a los botones de agregar al carrito
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.dataset.id);
+            agregarAlCarrito(id);
+        });
+    });
 }
 
 // Mostrar productos destacados en index
@@ -497,15 +503,21 @@ function mostrarProductosDestacados() {
                     <h3 class="producto-nombre">${producto.nombre}</h3>
                     <p class="producto-categoria">${capitalizar(producto.categoria)}</p>
                     <p class="producto-precio">$${producto.precio.toLocaleString()}</p>
-                    <button onclick="agregarAlCarrito(${producto.id})" class="btn-agregar">
-                        Agregar al Carrito
-                    </button>
+                    <input type="button" value="Agregar al Carrito" class="btn-agregar" data-id="${producto.id}">
                 </div>
             </div>
         `;
     });
     
     destacados.innerHTML = html;
+    
+    // Agregar event listeners a los botones de agregar al carrito
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.dataset.id);
+            agregarAlCarrito(id);
+        });
+    });
 }
 
 // ============================================
@@ -581,6 +593,7 @@ function finalizarCompra() {
     if (confirmacion) {
         mostrarNotificacion(`¡Compra realizada con éxito! Total: $${total.toLocaleString()}`, "success");
         carrito = [];
+        guardarCarrito();
         actualizarCarrito();
         
         // Redirigir al index después de 2 segundos
