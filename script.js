@@ -6,7 +6,7 @@ const productosDisponibles = [
     { 
         id: 1, 
         nombre: "Monopoly Clásico", 
-        precio: 8500, 
+        precio: 81990, 
         categoria: "estrategia", 
         imagen: "https://i5.walmartimages.com/seo/Monopoly-Board-Game-Family-Board-Game-for-2-to-6-Players_fe6d554d-dfdd-48ae-bee2-cb16424af7bb.4dadb2174b404f5a8342dd90e1475948.jpeg",
         descripcion: "El clásico juego de compra y venta de propiedades. Negociá, invertí y ganá.",
@@ -16,7 +16,7 @@ const productosDisponibles = [
     { 
         id: 2, 
         nombre: "Jenga", 
-        precio: 3500, 
+        precio: 17870, 
         categoria: "habilidad", 
         imagen: "https://m.media-amazon.com/images/I/81yiXHwgQWL.jpg",
         descripcion: "Torre de bloques de madera. Concentración, pulso y reflejos.",
@@ -26,7 +26,7 @@ const productosDisponibles = [
     { 
         id: 3, 
         nombre: "UNO", 
-        precio: 2500, 
+        precio: 9990, 
         categoria: "cartas", 
         imagen: "https://acdn-us.mitiendanube.com/stores/001/910/805/products/uno-fe16f218cb4721b1b117418347419949-1024-1024.webp",
         descripcion: "El juego de cartas más famoso del mundo. ¡Di UNO antes que nadie!",
@@ -36,7 +36,7 @@ const productosDisponibles = [
     { 
         id: 4, 
         nombre: "T.E.G", 
-        precio: 6500, 
+        precio: 75200, 
         categoria: "estrategia", 
         imagen: "https://yetem.com/wp-content/uploads/2017/06/teg-clasico-570x570.jpg",
         descripcion: "Conquistá el mundo en este clásico de táctica, suerte y negociación.",
@@ -46,7 +46,7 @@ const productosDisponibles = [
     { 
         id: 5, 
         nombre: "Catán", 
-        precio: 12000, 
+        precio: 85990, 
         categoria: "estrategia", 
         imagen: "https://m.media-amazon.com/images/I/81fGXQfkZWL._AC_SL1500_.jpg",
         descripcion: "Colonizá la isla de Catán. Comercio, recursos y expansión.",
@@ -56,7 +56,7 @@ const productosDisponibles = [
     { 
         id: 6, 
         nombre: "Ajedrez", 
-        precio: 7500, 
+        precio: 36800, 
         categoria: "estrategia", 
         imagen: "https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=400&h=400&fit=crop",
         descripcion: "El juego de estrategia por excelencia. Tablero de madera premium.",
@@ -66,7 +66,7 @@ const productosDisponibles = [
     { 
         id: 7, 
         nombre: "Life", 
-        precio: 5500, 
+        precio: 41990, 
         categoria: "familiar", 
         imagen: "https://kinderlandar.vtexassets.com/arquivos/ids/155978/1101006_1.jpg?v=638049162560700000",
         descripcion: "Tomá decisiones y recorré el camino de la vida. Un clásico familiar.",
@@ -76,7 +76,7 @@ const productosDisponibles = [
     { 
         id: 8, 
         nombre: "Twister", 
-        precio: 4500, 
+        precio: 35300, 
         categoria: "habilidad", 
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPYJvYgEvZFS4lgbRTTZYzrm4YmVjz78odlw&s",
         descripcion: "El juego que te enreda. ¡Diversión física garantizada!",
@@ -86,7 +86,7 @@ const productosDisponibles = [
     { 
         id: 9, 
         nombre: "El Preso", 
-        precio: 11000, 
+        precio: 18900, 
         categoria: "estrategia", 
         imagen: "https://ruibalgames.com/wp-content/uploads/2015/10/preso1.jpg",
         descripcion: "Juego argentino de estrategia y escape carcelario. Ingenio y riesgo.",
@@ -96,7 +96,7 @@ const productosDisponibles = [
     { 
         id: 10, 
         nombre: "Clue (Misterio)", 
-        precio: 7800, 
+        precio: 40900, 
         categoria: "habilidad", 
         imagen: "https://apioverde.com/cdn/shop/files/D_856476-MLA77031569328_062024-O_1024x1024.jpg?v=1720618997",
         descripcion: "Resuelve el asesinato. ¿Quién, dónde y con qué arma?",
@@ -106,7 +106,7 @@ const productosDisponibles = [
     { 
         id: 11, 
         nombre: "Jumanji", 
-        precio: 9500, 
+        precio: 42200, 
         categoria: "familiar", 
         imagen: "https://kinderlandar.vtexassets.com/arquivos/ids/156277/1410005_2.jpg?v=638049163554630000",
         descripcion: "Entrá a la jungla y enfrentá desafíos salvajes. Inspirado en la película.",
@@ -116,7 +116,7 @@ const productosDisponibles = [
     { 
         id: 12, 
         nombre: "Say My Name", 
-        precio: 8900, 
+        precio: 35000, 
         categoria: "creatividad", 
         imagen: "https://acdn-us.mitiendanube.com/stores/102/709/products/smn_mu-iz_1280x1280px-70f00748ed09c018e817337684626753-640-0.jpg",
         descripcion: "Juego de cartas con ilustraciones surrealistas. Imaginación y humor.",
@@ -126,7 +126,7 @@ const productosDisponibles = [
     { 
         id: 13, 
         nombre: "Jungle Speed", 
-        precio: 4200, 
+        precio: 40000, 
         categoria: "habilidad", 
         imagen: "https://i.blogs.es/331249/00197632106544____1__1200x1200/450_1000.jpeg",
         descripcion: "Agarrá el tótem antes que los demás. Reflejos y atención al límite.",
@@ -136,7 +136,7 @@ const productosDisponibles = [
     { 
         id: 14, 
         nombre: "Cartas de Truco", 
-        precio: 10500, 
+        precio: 3000, 
         categoria: "cartas", 
         imagen: "https://http2.mlstatic.com/D_NQ_NP_669494-MLA87979714299_072025-O.webp",
         descripcion: "Clásico argentino. Engaño, picardía y táctica en cada mano.",
@@ -146,7 +146,7 @@ const productosDisponibles = [
     { 
         id: 15, 
         nombre: "Cartas de Poker", 
-        precio: 3200, 
+        precio: 3000, 
         categoria: "cartas", 
         imagen: "https://acdn-us.mitiendanube.com/stores/001/100/722/products/zz1096-011-78a0547ad6bf1769d016022719221416-640-0.jpg",
         descripcion: "Baraja estándar para juegos clásicos como Poker, Blackjack o Burako.",
@@ -156,7 +156,7 @@ const productosDisponibles = [
     { 
         id: 16, 
         nombre: "SET", 
-        precio: 9200, 
+        precio: 10000, 
         categoria: "cartas", 
         imagen: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017222944-1200-face3d.jpg",
         descripcion: "Encuentra patrones visuales antes que los demás. Razonamiento rápido.",
@@ -166,7 +166,7 @@ const productosDisponibles = [
     { 
         id: 17, 
         nombre: "Código Secreto", 
-        precio: 6800, 
+        precio: 60000, 
         categoria: "cartas", 
         imagen: "https://devirinvestments.s3.eu-west-1.amazonaws.com/img/catalog/product/8436017224627-1200-components1.jpg",
         descripcion: "Juego de espías y pistas. Adiviná las palabras del equipo.",
@@ -176,7 +176,7 @@ const productosDisponibles = [
     { 
         id: 18, 
         nombre: "What Do You Meme?", 
-        precio: 5900, 
+        precio: 30000, 
         categoria: "creatividad", 
         imagen: "https://gatoarcano.cl/wp-content/uploads/2022/11/Mesa-de-trabajo27312.jpg",
         descripcion: "Competí creando los memes más graciosos. Humor y rapidez mental.",
@@ -186,7 +186,7 @@ const productosDisponibles = [
     { 
         id: 19, 
         nombre: "Spot It!", 
-        precio: 8700, 
+        precio: 23800, 
         categoria: "cartas", 
         imagen: "https://www.spotitgame.com/wp-content/uploads/sites/5/2022/03/sp103_setup1_20210118-min-1024x556.png",
         descripcion: "Encontrá el símbolo repetido antes que los demás. Ideal para niños.",
@@ -196,7 +196,7 @@ const productosDisponibles = [
     { 
         id: 20, 
         nombre: "Pandemic", 
-        precio: 11500, 
+        precio: 70000, 
         categoria: "estrategia", 
         imagen: "https://acdn-us.mitiendanube.com/stores/001/320/809/products/pandemic-9dffe0438b0255ed9417255672312925-1024-1024.webp",
         descripcion: "Salvá al mundo de cuatro enfermedades mortales. Todos ganan o pierden.",
@@ -206,7 +206,7 @@ const productosDisponibles = [
     { 
         id: 21, 
         nombre: "Burako", 
-        precio: 10200, 
+        precio: 44300, 
         categoria: "estrategia", 
         imagen: "https://apioverde.com/cdn/shop/products/D_641243-MLA31048079697_062019-B_1024x1024.jpg?v=1662141232",
         descripcion: "Clásico juego de combinaciones con fichas y cartas. Estrategia y azar.",
@@ -216,7 +216,7 @@ const productosDisponibles = [
     { 
     id: 22, 
     nombre: "TAKI", 
-    precio: 7900, 
+    precio: 12000, 
     categoria: "cartas", 
     imagen: "https://m.media-amazon.com/images/I/81fqBv1cueL._AC_SL1500_.jpg",
     descripcion: "Rápido y adictivo juego de cartas israelí. Similar a UNO, pero con más estrategia y acción.",
@@ -226,7 +226,7 @@ const productosDisponibles = [
     { 
         id: 23, 
         nombre: "Memotest", 
-        precio: 2800, 
+        precio: 15000, 
         categoria: "creatividad", 
         imagen: "https://apioverde.com/cdn/shop/products/D_624596-MLA31117626542_062019-B_1024x1024.jpg?v=1662141157",
         descripcion: "Clásico juego de memoria con ilustraciones coloridas. Ideal para chicos.",
@@ -236,7 +236,7 @@ const productosDisponibles = [
     { 
         id: 24, 
         nombre: "Preguntados", 
-        precio: 8300, 
+        precio: 16000, 
         categoria: "familiar", 
         imagen: "https://apioverde.com/cdn/shop/products/D_651260-MLA31120593808_062019-B_1024x1024.jpg?v=1662141473",
         descripcion: "Demostrá tus conocimientos en seis categorías. Hecho en Argentina.",
