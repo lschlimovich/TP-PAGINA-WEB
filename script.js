@@ -246,7 +246,7 @@ const productosDisponibles = [
 ];
 
 // ============================================
-// CARRITO DE COMPRAS (con persistencia en localStorage)
+// CARRITO DE COMPRAS (En localStorage)
 // ============================================
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -289,7 +289,7 @@ function agregarAlCarrito(idProducto) {
     mostrarNotificacion(`${producto.nombre} agregado al carrito`, "success");
 }
 
-// READ - Actualizar vista del carrito
+// READ
 function actualizarCarrito() {
     const listaCarrito = document.getElementById('listaCarrito');
     const totalCarrito = document.getElementById('totalCarrito');
@@ -318,7 +318,7 @@ function actualizarCarrito() {
         return;
     }
     
-    // Generar HTML del carrito
+    // HTML del carrito
     let html = '';
     let total = 0;
     
@@ -348,14 +348,14 @@ function actualizarCarrito() {
     
     listaCarrito.innerHTML = html;
     
-    // Agregar event listeners a los botones dinámicos
+    // Agrego event listeners a los botones
     agregarEventListenersCarrito();
     
     if (totalCarrito) totalCarrito.textContent = total.toLocaleString();
     if (subtotalCarrito) subtotalCarrito.textContent = total.toLocaleString();
 }
 
-// Agregar event listeners a botones dinámicos del carrito
+// Agrego event listeners a botones del carrito
 function agregarEventListenersCarrito() {
     // Botones de restar cantidad
     document.querySelectorAll('.btn-restar').forEach(btn => {
@@ -397,7 +397,7 @@ function modificarCantidad(idProducto, cambio) {
     }
 }
 
-// DELETE - Eliminar producto del carrito
+// DELETE 
 function eliminarDelCarrito(idProducto) {
     const producto = carrito.find(item => item.id === idProducto);
     carrito = carrito.filter(item => item.id !== idProducto);
@@ -471,7 +471,7 @@ function mostrarProductos(productos) {
     
     catalogo.innerHTML = html;
     
-    // Agregar event listeners a los botones de agregar al carrito
+    // Event listeners botones de agregar al carrito
     document.querySelectorAll('.btn-agregar').forEach(btn => {
         btn.addEventListener('click', function() {
             const id = parseInt(this.dataset.id);
@@ -486,7 +486,7 @@ function mostrarProductosDestacados() {
     
     if (!destacados) return;
     
-    // Seleccionar juegos destacados específicos
+    // Selecciono juegos destacados específicos
     const idsDestacados = [1, 5, 11, 20]; // Monopoly, Catán, Jumanji, Pandemic
     const productosDestacados = productosDisponibles.filter(p => idsDestacados.includes(p.id));
     
@@ -511,7 +511,7 @@ function mostrarProductosDestacados() {
     
     destacados.innerHTML = html;
     
-    // Agregar event listeners a los botones de agregar al carrito
+    // Event listeners botones de agregar al carrito
     document.querySelectorAll('.btn-agregar').forEach(btn => {
         btn.addEventListener('click', function() {
             const id = parseInt(this.dataset.id);
@@ -624,7 +624,7 @@ function capitalizar(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
-// Leer parámetros de URL (para filtrar por categoría desde el index)
+// Lee parámetros de URL (para filtrar por categoría desde el index)
 function obtenerParametroURL(parametro) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(parametro);
@@ -636,12 +636,12 @@ function obtenerParametroURL(parametro) {
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Actualizar contador del carrito en todas las páginas
+    // Actualiza contador del carrito en todas las páginas
     actualizarCarrito();
     
     // Si estamos en la página de productos
     if (document.getElementById('catalogoProductos')) {
-        // Verificar si hay categoría en la URL
+        // Verifica si hay categoría en la URL
         const categoriaURL = obtenerParametroURL('categoria');
         
         if (categoriaURL) {
@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (btnFiltrar) btnFiltrar.addEventListener('click', aplicarFiltros);
         if (btnLimpiar) btnLimpiar.addEventListener('click', limpiarFiltros);
         
-        // Aplicar filtros al cambiar select de ordenar
+        // Aplica filtros al cambiar select de ordenar
         const selectOrdenar = document.getElementById('ordenar');
         if (selectOrdenar) {
             selectOrdenar.addEventListener('change', aplicarFiltros);
